@@ -5,7 +5,7 @@ const connection = mysql.createConnection(dbconfig);
 
 const app = express();
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3030);
 
 app.use(express.urlencoded({
   extended: true
