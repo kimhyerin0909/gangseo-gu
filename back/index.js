@@ -15,14 +15,14 @@ app.get('/', (req, res) => {
   res.send('Root');
 });
 
-app.get('/places', (req, res) => {
+app.get('/api/places', (req, res) => {
   connection.query('SELECT * from Place', (error, rows) => {
     if (error) console.log(error) ;
     res.send(rows);
   });
 });
 
-app.post('/add', (req, res) => {
+app.post('/api/add', (req, res) => {
   const {place_name, score, description, img_url} = req.body;
   connection.query(`INSERT INTO place VALUES (0, "${place_name}", ${score}, "${description}", "${img_url}");`, (error, rows) => {
     if(error) console.log(error);
