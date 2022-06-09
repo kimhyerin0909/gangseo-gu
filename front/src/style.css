@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "NEXON Lv2 Gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: NEXON Lv2 Gothic;
+}
+
+.card-box {
+  width: 100vh;
+  height: 300px;
+  margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.card-box .scroll-horizontal {
+  padding: 20px;
+}
+.card-box .scroll-horizontal .card {
+  height: 250px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.285);
+  padding: 10px;
+  margin-right: 20px;
+  width: 200px;
+}
+.card-box .scroll-horizontal .card span {
+  display: block;
+}
+.card-box .scroll-horizontal .card section {
+  object-fit: fill;
+  display: flex;
+  align-items: center;
+}
+.card-box .scroll-horizontal .card section .star {
+  width: 100px;
+  position: absolute;
+}
+.card-box .scroll-horizontal .card section .star-point {
+  margin-left: 105px;
+  margin-top: 6px;
+}
+.card-box .scroll-horizontal .card section .full-star {
+  width: 82px;
+}
+.card-box .scroll-horizontal .card .place_name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.card-box .scroll-horizontal .card .place_desc, .card-box .scroll-horizontal .card .place_name {
+  font-size: 15px;
+}
+.card-box .scroll-horizontal .card .place_img {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  height: 150px;
+}
+
+/*# sourceMappingURL=style.css.map */
