@@ -36,23 +36,32 @@
   display: flex;
   align-items: center;
 }
-.card-box .scroll-horizontal .card section .star {
-  width: 100px;
+.card-box .scroll-horizontal .card section .stars {
   position: absolute;
+  background: url(../public/star-empty.png) no-repeat;
+  width: 100px;
+  height: 16.67px;
+}
+.card-box .scroll-horizontal .card section .stars .full-star {
+  background: url(../public/star-full.png) no-repeat;
+  transform: scaleX(-1);
+  width: 100px;
+  height: 16.67px;
 }
 .card-box .scroll-horizontal .card section .star-point {
+  font-weight: bold;
   margin-left: 105px;
   margin-top: 6px;
-}
-.card-box .scroll-horizontal .card section .full-star {
-  width: 82px;
 }
 .card-box .scroll-horizontal .card .place_name {
   font-weight: bold;
   margin-bottom: 5px;
-}
-.card-box .scroll-horizontal .card .place_desc, .card-box .scroll-horizontal .card .place_name {
   font-size: 15px;
+}
+.card-box .scroll-horizontal .card .place_desc {
+  font-size: 12px;
+  margin-left: 5px;
+  margin-top: 6px;
 }
 .card-box .scroll-horizontal .card .place_img {
   margin-bottom: 10px;
