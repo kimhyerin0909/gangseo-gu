@@ -11,13 +11,24 @@
     font-family: NEXON Lv2 Gothic;
 }
 
+.header {
+    height: 40px;
+    background-color: white;
+}
+
 .card-box {
     width: 100vh;
     height: 300px;
     margin: auto;
     display: flex;
     flex-wrap: nowrap;
+    p {
+        position: absolute;
+        font-size: 20px;
+        font-weight: bold;
+    }
     .scroll-horizontal {
+        margin-top: 20px;
         padding: 20px;
         .card {
             height: 250px;
@@ -67,6 +78,24 @@
                 width: 100%;
                 height: 150px;
             }
+        }
+    }
+}
+
+.landmark {
+    width: 100vh;
+    margin: auto;
+    margin-top: 50px;
+    color: black;
+    .lm-btns {
+        display: flex;
+        width: 80%;
+        justify-content: space-around;
+        button {
+            border: 1px solid rgb(18, 124, 18);
+            background-color: white;
+            border-radius: 5px;
+            padding:4px;
         }
     }
 }
