@@ -19,6 +19,7 @@ export default function Cards() {
 
     return (
         <div id='scroll-horizontal' className='card-box' >
+            <p>이곳에 가보시는 건 어떠신가요?</p>
             <ScrollHorizontal >
                 {card.map(data => {
                     const a = <div className={`card card${data["place_id"]}`} key={data["place_id"]} >
