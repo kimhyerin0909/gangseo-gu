@@ -1,8 +1,17 @@
+$green : #018531;
+
 @font-face {
     font-family: 'NEXON Lv2 Gothic';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
 }
 
 * {
@@ -11,13 +20,55 @@
     font-family: NEXON Lv2 Gothic;
 }
 
+.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .header {
-    height: 40px;
+    width: 100%;
+    height: 70px;
     background-color: white;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.212);
+    margin-bottom: 30px;
+    .header-section {
+        .header-logo {
+            height: 70%;
+        }
+        display: flex;
+        width: 120vh;
+        height: 100%;
+        align-items: center;
+        margin: auto;
+        .header-nav {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            a {
+                text-decoration: none;
+                color: rgb(102, 102, 102);
+                margin-left: 20px;
+                background-color: white;
+                border-radius: 4px;
+                padding: 4px;
+                &:hover {
+                    color: $green;
+                }
+            }
+            .active {
+                font-weight: bold;
+                color: $green;
+            }
+        }
+    }
+}
+
+main {
+    border:0 1px solid black;
 }
 
 .card-box {
-    width: 100vh;
+    width: 120vh;
     height: 300px;
     margin: auto;
     display: flex;
@@ -83,9 +134,10 @@
 }
 
 .landmark {
-    width: 100vh;
+    width: 120vh;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
     color: black;
     .lm-btns {
         display: flex;
@@ -97,5 +149,8 @@
             border-radius: 5px;
             padding:4px;
         }
+    }
+    .landmark-info {
+        
     }
 }
