@@ -1,5 +1,4 @@
 import './style.css';
-import Cards from './components/Cards';
 import Header from './components/Header';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandMark from './components/LandMark';
@@ -11,12 +10,14 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Cards />
-        <Routes>
-          <Route exact path='/' element={<Home />}/>
-          <Route exact path="/landmark" element={<LandMark />}/>
-          <Route exact path="/cctv" element={<CctvMarker />}/>
-        </Routes>
+        <main>
+          <Routes>
+            <Route exact path='/' element={<Home />}/>
+            <Route exact path="/landmark" element={<LandMark />}/>
+            <Route exact path="/cctv" element={<CctvMarker />}/>
+          </Routes>
+        </main>
+        
       </BrowserRouter>
     </div>
   );
