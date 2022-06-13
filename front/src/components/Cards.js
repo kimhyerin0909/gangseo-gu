@@ -28,8 +28,8 @@ export default function Cards() {
                         <section>
                             <div className='stars'>
                                 <div style={{
-                                    backgroundPosition:`-${100 -(data["score"] * 20)}px`,
-                                    marginLeft:`-${100-(data["score"] * 20)}px`}
+                                    backgroundPosition:`-${98 -(data["score"] * 20)}px`,
+                                    marginLeft:`-${98-(data["score"] * 20)}px`}
                                     }
                                     ref={star}className='full-star' alt='star' src='../full_star.png'></div>
                                 <div className='empty-star' alt='star' src='../empty_star.png'></div>
