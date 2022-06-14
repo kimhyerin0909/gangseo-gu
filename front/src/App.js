@@ -17,7 +17,6 @@ export default function App() {
             <Route exact path="/cctv" element={<CctvMarker />}/>
           </Routes>
         </main>
-        
       </BrowserRouter>
     </div>
   );
