@@ -24,7 +24,7 @@ app.get('/api/places', (req, res) => {
 
 app.post('/api/add', (req, res) => {
   const {place_name, score, description, img_url, address} = req.body;
-  connection.query(`INSERT INTO place VALUES (0, "${place_name}", ${score}, "${description}", "${img_url}", "${address}");`, (error, rows) => {
+  connection.query(`INSERT INTO place VALUES (0, "${place_name}", "${score}", "${description}", "${img_url}", "${address}");`, (error, rows) => {
     if(error) console.log(error);
     res.send(rows);
   })
