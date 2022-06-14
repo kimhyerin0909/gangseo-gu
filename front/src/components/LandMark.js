@@ -1,56 +1,70 @@
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards';
-import lm from "../landmark.json";
+import axios from 'axios';
 const { kakao } = window;
 
 export default function LandMark() {
-  function makeOverListener(map, marker, infowindow) {
-    return function() {
-        infowindow.open(map, marker);
-    };
+  const [placeData, setPlaceData] = useState([]);
+  const [flag, setFlag] = useState(false);
+  const makeOverListener = (map, marker, infowindow) => {
+    return () => infowindow.open(map,marker);
+  }
+  // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+  const makeOutListener = (infowindow) => {
+    return () => infowindow.close();
   }
 
-  // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-  function makeOutListener(infowindow) {
-      return function() {
-          infowindow.close();
-      };
+  const getData = async () => {
+    const result = await axios.get("/api/places")
+    .then(res => {
+      setPlaceData(res.data)
+      setFlag(true)
+      console.log(placeData)
+    })
   }
 
   useEffect(() => {
+    getData();
     const container = document.getElementById('map');
     const options = {
       center : new kakao.maps.LatLng(35.1539342346421, 128.88044789823067),
       level : 9
     };
     const map = new kakao.maps.Map(container, options);
-    const positions = lm.map(data => {
+    const geocoder = new kakao.maps.services.Geocoder();
+    
+    const positions = placeData.map(data => {
       const a = {
-        id : data["id"],
-        title : data["name"],
-        latlng : new kakao.maps.LatLng(data["lat"], data["lon"]),
-        content : data["desc"],
+        id : data["place_id"],
+        address : data["address"],
+        title : data["place_name"],
+        content : data["description"],
         imgUrl : data["img_url"],
         clickable: true
       }
       return a;
-    }) 
-    for (var i = 0; i < positions.length; i ++) {
-      var marker = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: positions[i].latlng, // 마커를 표시할 위치
-          title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+    })
+    for (let i = 0; i < positions.length; i++) {
+      // eslint-disable-next-line no-loop-func
+      geocoder.addressSearch(positions[i].address, (res, sta) => {
+        if(sta === kakao.maps.services.Status.OK) {
+          const coords = new kakao.maps.LatLng(res[0].y, res[0].x);
+          let marker = new kakao.maps.Marker({
+            map : map,
+            position : coords,
+          })
+          let infowindow = new kakao.maps.InfoWindow({
+            content: `<div className="landmark-info">
+            <span>${positions[i].title}</span>
+          </div>`,
+          });
+          kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+          kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+        }
       });
-      var infowindow = new kakao.maps.InfoWindow({
-        content: `<div className="landmark-info">
-        <span>${positions[i].title}</span>
-      </div>`,
-      });
-      kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-      kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
     }
     
-  }, [])
+  }, [flag])
   return (
     <div>
       <Cards />
