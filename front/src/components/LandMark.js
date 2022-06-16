@@ -6,6 +6,7 @@ const { kakao } = window;
 export default function LandMark() {
   const [placeData, setPlaceData] = useState([]);
   const [flag, setFlag] = useState(false);
+  const [targetPlace, setTargetPlace] = useState(null);
   const makeOverListener = (map, marker, infowindow) => {
     return () => infowindow.open(map,marker);
   }
@@ -15,12 +16,17 @@ export default function LandMark() {
   }
 
   const getData = async () => {
-    const result = await axios.get("/api/places")
+    await axios.get("/api/places")
     .then(res => {
       setPlaceData(res.data)
       setFlag(true)
-      console.log(placeData)
     })
+  }
+  
+  const moveToMap = (add) => {
+    document.location.href = "#map2";
+    setTargetPlace(add);
+    console.log(targetPlace)
   }
 
   useEffect(() => {
@@ -48,7 +54,7 @@ export default function LandMark() {
       // eslint-disable-next-line no-loop-func
       geocoder.addressSearch(positions[i].address, (res, sta) => {
         if(sta === kakao.maps.services.Status.OK) {
-          const coords = new kakao.maps.LatLng(res[0].y, res[0].x);
+          let coords = new kakao.maps.LatLng(res[0].y, res[0].x);
           let marker = new kakao.maps.Marker({
             map : map,
             position : coords,
@@ -62,20 +68,20 @@ export default function LandMark() {
           kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
         }
       });
+      // console.log(targetPlace);
     }
-    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flag])
   return (
     <div>
-      <Cards />
+      <Cards moveToMap={moveToMap} />
+      <div id='map2'></div>
       <article className='landmark'>
-        <p className='subtitle'>강서구 랜드마크</p>
         <div id="map" style={{
           width:'100%',
           height:'500px'
         }}></div>
       </article>
     </div>
-    
   )
 }
