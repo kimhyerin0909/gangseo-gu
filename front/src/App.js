@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandMark from './components/LandMark';
 import CctvMarker from './components/CctvMarker';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
             <Route exact path="/cctv" element={<CctvMarker />}/>
           </Routes>
         </main>
+        <Footer />
       </BrowserRouter>
     </div>
   );
