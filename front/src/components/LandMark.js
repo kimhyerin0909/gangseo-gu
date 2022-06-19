@@ -24,8 +24,7 @@ export default function LandMark() {
   }
   
   const moveToMap = (add) => {
-    document.location.href = "#map2";
-    setTargetPlace(add);
+    setTargetPlace((data) => add);
     console.log(targetPlace)
   }
 
@@ -71,11 +70,10 @@ export default function LandMark() {
       // console.log(targetPlace);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flag])
+  }, [flag, targetPlace])
   return (
     <div>
       <Cards moveToMap={moveToMap} />
-      <div id='map2'></div>
       <article className='landmark'>
         <div id="map" style={{
           width:'100%',
