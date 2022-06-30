@@ -9,6 +9,11 @@ $green : #018531;
 
 body {
     -ms-overflow-style: none;
+    background: url(../public/backgroundcut_edit.png);
+    background-repeat: no-repeat;
+    background-position-x: 96%;
+    background-position-y: 15%;
+    background-size: 10%;
 }
 ::-webkit-scrollbar {
     display: none;
@@ -36,7 +41,7 @@ body {
             height: 70%;
         }
         display: flex;
-        width: 120vh;
+        width: 150vh;
         height: 100%;
         align-items: center;
         margin: auto;
@@ -71,7 +76,7 @@ main {
 }
 
 .card-box {
-    width: 120vh;
+    width: 150vh;
     height: 300px;
     margin: auto;
     display: flex;
@@ -95,6 +100,7 @@ main {
             padding: 10px;
             margin-right: 20px;
             width: 200px;
+            background-color: white;
             span {
                 display: block;
             }
@@ -141,7 +147,7 @@ main {
 }
 
 .landmark {
-    width: 120vh;
+    width: 150vh;
     margin: auto;
     margin-top: 50px;
     margin-bottom: 70px;
@@ -200,7 +206,7 @@ main {
     .home-main {
         display: block;
         margin: auto;
-        width: 120vh;
+        width: 150vh;
         height: 100vh;
         .youtube {
             margin-top: 10px;
