@@ -16,9 +16,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/places', (req, res) => {
-  connection.query('SELECT * from Place', (error, rows) => {
-    if (error) console.log(error) ;
-    res.send(rows);
+  connection.query('SELECT * from place', (error, rows) => {
+    if (error) console.log(error);
+      res.send(rows);
   });
 });
 
