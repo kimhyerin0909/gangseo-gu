@@ -35,7 +35,7 @@ export default function Cards(props) {
                                     <div className='empty-star' alt='star' src='../empty_star.png'></div>
                                 </div>
                                 <span className='star-point'>{data["score"]}</span>
-                                <span className='place_desc'>({data["description"]})</span>
+                                <span className='place_desc'>({data["review_count"]})</span>
                             </section>
                         </div>
                     </div>
