@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandMark from './components/LandMark';
 import Home from './components/Home';
 import Footer from './components/Footer';
+import Tendency from './components/Tendency';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Routes>
             <Route exact path='/' element={<Home />}/>
             <Route exact path="/landmark" element={<LandMark />}/>
+            <Route exact path='tendency' element={<Tendency />}/>
           </Routes>
         </main>
         <Footer />

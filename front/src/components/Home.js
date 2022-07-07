@@ -30,10 +30,7 @@ export default function Home() {
       </div>
       <div className='home-main'>
         <h2>부산광역시 강서구</h2>
-        <iframe className='youtube' width="560" height="315" src="https://www.youtube.com/embed/i_iUoLdpOZ8?controls=0?autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div>
-        경 축복 탄생 축
+        <iframe className='youtube' width="560"  src="https://www.youtube.com/embed/bdiVeIyM6fI?controls=0?autoplay=1&mute=1" title="엄마! 강서라서 행보케요,,,❤️" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
     </div>
   )
