@@ -85,10 +85,13 @@ body {
   margin: auto;
 }
 .header .header-section .header-list {
-  width: 42px;
   margin-left: auto;
   display: none;
   height: 60%;
+}
+.header .header-section .header-list img {
+  width: 42px;
+  height: 42px;
 }
 .header .header-section .header-logo {
   height: 80%;
@@ -417,6 +420,9 @@ main {
 }
 
 @media all and (max-width: 480px) {
+  .header .header-section .header-list {
+    width: 20px;
+  }
   .tendency .quiz h3 {
     font-size: 15px;
   }
