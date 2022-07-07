@@ -85,6 +85,7 @@ body {
   margin: auto;
 }
 .header .header-section .header-list {
+  width: 42px;
   margin-left: auto;
   display: none;
   height: 60%;
@@ -348,8 +349,9 @@ main {
 }
 
 .footer {
-  margin-top: 15%;
+  bottom: 0;
   width: 100%;
+  margin-top: 15%;
   height: 20vh;
   background-color: rgb(193, 193, 193);
   text-align: center;
@@ -415,6 +417,9 @@ main {
 }
 
 @media all and (max-width: 480px) {
+  .tendency .quiz h3 {
+    font-size: 15px;
+  }
   .home .home-img {
     height: 270px;
   }
@@ -423,6 +428,9 @@ main {
   }
   .home .home-img .main-img {
     height: 270px;
+  }
+  .home .home-main .youtube {
+    height: 200px;
   }
   #map {
     height: 200px;
@@ -462,6 +470,7 @@ main {
   }
   .tendency .quiz {
     width: 100%;
+    height: 100vh;
   }
   .tendency .quiz .ilust {
     width: 70%;
