@@ -1,13 +1,21 @@
 import React, { useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 export default function Header() {
+  window.onresize = function() {
+    checkSize();
+  }
   const list = useRef();
   const nav = useRef();
   const [isClick, setIsClick] = useState(false);
-
   const showList = () => {
     isClick ? nav.current.style.display = "none" : nav.current.style.display = "block"
     setIsClick(d => !d)
+  }
+
+  const checkSize = () => {
+    if (matchMedia("screen and (min-width: 850px)").matches) {
+      nav.current.style.display = "none"
+    }
   }
 
   return (
@@ -24,7 +32,6 @@ export default function Header() {
           <a href="https://www.bsgangseo.go.kr/">강서구 홈페이지</a>
         </nav>
       </section>
-        
         <nav ref={nav} className='header-nav hidden-nav'>
           <NavLink to="/">홈</NavLink>
           <NavLink to="/landmark">강서구 여기 어때?</NavLink>
