@@ -192,11 +192,12 @@ main {
             color: #FFF;
             border-radius: 5px;
             transition: all 0.2s;
+            top: 0px;
             background: linear-gradient(94.87deg, #018531 0%, #5ED188 100%);
             box-shadow: 0px 5px 0px 0px #007144;
             &:hover {
                 box-shadow: 0px 0px 0px 0px #007144;
-                margin-top: 5px;
+                top: 5px;
             }
         }
     }
