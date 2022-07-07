@@ -22,7 +22,7 @@ export default function Cards(props) {
                     : card.map(data => {
                 const a = 
                     <div>
-                        <div onClick={() => {props.moveToMap(data["address"])}} className={`card card${data["place_id"]}`} key={data["place_id"]} >
+                        <div onClick={() => {props.showDetailInfo(data)}} className={`card card${data["place_id"]}`} key={data["place_id"]} >
                             <img className='place_img' alt='images' src={data["img_url"]} />
                             <span className='place_name'>{data["place_name"]}</span>
                             <section>
@@ -32,7 +32,7 @@ export default function Cards(props) {
                                         marginLeft:`-${99.5-(data["score"] * 20)}px`}
                                         }
                                         className='full-star' alt='star' src='../full_star.png'></div>
-                                    <div className='empty-star' alt='star' src='../empty_star.png'></div>
+                                    <div className='empty-star' alt='star' src='/empty_star.png'></div>
                                 </div>
                                 <span className='star-point'>{data["score"]}</span>
                                 <span className='place_desc'>({data["review_count"]})</span>

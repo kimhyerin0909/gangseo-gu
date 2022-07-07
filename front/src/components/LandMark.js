@@ -1,35 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards';
 import axios from 'axios';
+import DetailInfo from './DetailInfo';
 const { kakao } = window;
 
 export default function LandMark() {
-  const [placeData, setPlaceData] = useState([]);
-  const [flag, setFlag] = useState(false);
-  const [targetPlace, setTargetPlace] = useState(null);
+  const [placeData, setPlaceData] = useState([]); // DB에서 가져온 랜드마크 데이터
+  const [isClick, setIsClick] = useState(false); // 카드를 클릭했는지
+  const [targetPlace, setTargetPlace] = useState(null); // 클릭된 랜드마크 상세정보
+  const [isEmpty, setIsEmpty] = useState(false);
   const makeOverListener = (map, marker, infowindow) => {
     return () => infowindow.open(map,marker);
   }
-  // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
   const makeOutListener = (infowindow) => {
     return () => infowindow.close();
   }
 
-  const getData = async () => {
+  const getData = async () => { // DB에서 랜드마크 데이터 가져오기
     await axios.get("/api/places")
     .then(res => {
-      setPlaceData(res.data)
-      setFlag(true)
+      setPlaceData(() => res.data)
+      if(res.data.length !== 0) setIsEmpty(true);
     })
   }
   
-  const moveToMap = (add) => {
-    setTargetPlace((data) => add);
-    console.log(targetPlace)
+  const showDetailInfo = (add) => {  // 카드 클릭 시 클릭된 장소의 상세 정보 저장
+    setTargetPlace(data => add);
+    setIsClick(data => !data); 
+    if(!isClick) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
   }
 
-  useEffect(() => {
-    getData();
+  const showMap = () => {
     const container = document.getElementById('map');
     const options = {
       center : new kakao.maps.LatLng(35.1539342346421, 128.88044789823067),
@@ -40,7 +42,7 @@ export default function LandMark() {
     
     const positions = placeData.map(data => {
       const a = {
-        id : data["place_id"],
+        id : data["id"],
         address : data["address"],
         title : data["place_name"],
         content : data["description"],
@@ -59,25 +61,30 @@ export default function LandMark() {
             position : coords,
           })
           let infowindow = new kakao.maps.InfoWindow({
-            content: `<div className="landmark-info">
+            content: `<div id="landmark-info">
             <span>${positions[i].title}</span>
           </div>`,
           });
           kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
           kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+          // kakao.maps.event.addListener(marker, 'click', showDetailInfo(positions[i]));
         }
       });
-      // console.log(targetPlace);
     }
+  }
+
+  useEffect(() => {
+    getData();
+    showMap();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flag, targetPlace])
+  }, [targetPlace, isEmpty])
   return (
-    <div>
-      <Cards moveToMap={moveToMap} />
+    <div className='places-box'>
+      {isClick ? <DetailInfo deleteInfo={showDetailInfo} info={targetPlace}/> : null}
+      <Cards showDetailInfo={showDetailInfo} />
       <article className='landmark'>
         <div id="map" style={{
-          width:'100%',
-          height:'500px'
+          width:'100%'
         }}></div>
       </article>
     </div>
