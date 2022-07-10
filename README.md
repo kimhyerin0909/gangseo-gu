@@ -9,19 +9,19 @@
 
 ![home](https://kimhyerin.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4748d964-e241-414e-8be6-fa42b0b60aab%2FUntitled.png?table=block&id=c77279b2-048d-42f9-940f-162328ab6c37&spaceId=78ff6816-d29d-4118-bc79-82a8ff2f87a2&width=2000&userId=&cache=v2)
 
-1. **Landmark**
+2. **Landmark**
 
 ![landmark](https://kimhyerin.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc56402ea-4308-43f8-9490-6a9016d1a23b%2FUntitled.png?table=block&id=9063a8fb-88da-4800-ba0f-33c079d559ee&spaceId=78ff6816-d29d-4118-bc79-82a8ff2f87a2&width=2000&userId=&cache=v2)
 
-1. **Tendency test**
+3. **Tendency test**
 
 ![tendency](https://kimhyerin.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4fa1307b-0f91-4df7-9883-b7f2eeb5c19e%2FUntitled.png?table=block&id=4dd961d4-32e9-4a78-b5d6-9afb666ca9ec&spaceId=78ff6816-d29d-4118-bc79-82a8ff2f87a2&width=2000&userId=&cache=v2)
 
-1. **Tendency test - quiz**
+4. **Tendency test - quiz**
 
 ![quiz](https://kimhyerin.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff37d025d-62fe-4cf4-8ac6-af7709812df3%2FUntitled.png?table=block&id=ed5fae4a-1367-4cc4-9e1b-94ea5f8945f8&spaceId=78ff6816-d29d-4118-bc79-82a8ff2f87a2&width=2000&userId=&cache=v2)
 
-1. **Tendency test - result**
+5. **Tendency test - result**
 
 ![result](https://kimhyerin.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F40e0ea21-b43f-4005-9e8c-41779b3e8df3%2FUntitled.png?table=block&id=02457df8-c166-4d77-98bc-cb7c3bf8df2f&spaceId=78ff6816-d29d-4118-bc79-82a8ff2f87a2&width=2000&userId=&cache=v2)
 
